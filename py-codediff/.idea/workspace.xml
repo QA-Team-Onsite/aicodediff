@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ae29b50b-f1c9-465a-ae35-138391ad4370" name="Changes" comment="增加大模型接口判断">
+      <change afterPath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/controller/MethodInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/controller/DiffMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/controller/DiffMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/controller/DiffMethodResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/controller/DiffMethodResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/dependency-reduced-pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/org/example/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/HtmlUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport10.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport7.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport8.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/main/java/report/JsonToHtmlReport9.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/test/java/org/example/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/test/java/report/JsonToHtmlReport10Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/test/java/report/JsonToHtmlReport1Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/test/java/report/JsonToHtmlReport9Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/src/test/resources/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-codediff/src/main/java/org/example/diffmethod/function-collection/test_report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/get_change_method_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/get_change_method_view.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;gaobo&quot;,
+      &quot;fullname&quot;: &quot;高博&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;http://gitlab.jrdaimao.com/qa/aicodediff.git&quot;,
+    &quot;second&quot;: &quot;e0768d7b-e194-40d4-824d-0b8751b96c51&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2s3vo5zFNIAvDp7yB6jOb62H1CA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_change_method_view.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/lcode/aicodediff/py-codediff/view&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
+    ],
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\lcode\aicodediff\py-codediff\view" />
+      <recent name="E:\lcode\aicodediff\py-codediff\base" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test (1)">
+    <configuration name="api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py-codediff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/controller" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controller/api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_report_view" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py-codediff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/read_report_view.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="remove_java_comments_view" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py-codediff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/remove_java_comments_view.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py-codediff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py-codediff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.api" />
+        <item itemvalue="Python.read_report_view" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.remove_java_comments_view" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae29b50b-f1c9-465a-ae35-138391ad4370" name="Changes" comment="" />
+      <created>1737697246120</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737697246120</updated>
+      <workItem from="1737697248867" duration="824000" />
+      <workItem from="1737713029862" duration="11000" />
+      <workItem from="1737713050772" duration="1331000" />
+      <workItem from="1738824384266" duration="70000" />
+      <workItem from="1738824638606" duration="1131000" />
+      <workItem from="1738826339446" duration="13000" />
+      <workItem from="1738826400959" duration="611000" />
+      <workItem from="1741091881082" duration="819000" />
+      <workItem from="1741249042628" duration="1382000" />
+      <workItem from="1745913615639" duration="14670000" />
+      <workItem from="1745986189992" duration="23056000" />
+      <workItem from="1746760566155" duration="22787000" />
+      <workItem from="1747794110508" duration="426000" />
+      <workItem from="1747904138703" duration="7655000" />
+      <workItem from="1748332795878" duration="658000" />
+      <workItem from="1748428079926" duration="6281000" />
+      <workItem from="1749007147715" duration="10013000" />
+      <workItem from="1749694593512" duration="24000" />
+      <workItem from="1750754964397" duration="3916000" />
+      <workItem from="1751619550382" duration="6000" />
+      <workItem from="1752551979482" duration="1071000" />
+      <workItem from="1752667995740" duration="5482000" />
+    </task>
+    <task id="LOCAL-00017" summary="接口返回增加源代码">
+      <option name="closed" value="true" />
+      <created>1738922061011</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1738922061011</updated>
+    </task>
+    <task id="LOCAL-00018" summary="注释">
+      <option name="closed" value="true" />
+      <created>1738980676409</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1738980676409</updated>
+    </task>
+    <task id="LOCAL-00019" summary="部署文档更新">
+      <option name="closed" value="true" />
+      <created>1738982012756</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1738982012756</updated>
+    </task>
+    <task id="LOCAL-00020" summary="部署文档更新">
+      <option name="closed" value="true" />
+      <created>1738993213766</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1738993213766</updated>
+    </task>
+    <task id="LOCAL-00021" summary="部署文档更新">
+      <option name="closed" value="true" />
+      <created>1738993528874</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1738993528874</updated>
+    </task>
+    <task id="LOCAL-00022" summary="部署文档更新">
+      <option name="closed" value="true" />
+      <created>1739003882188</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739003882188</updated>
+    </task>
+    <task id="LOCAL-00023" summary="增加日志">
+      <option name="closed" value="true" />
+      <created>1739010033441</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1739010033441</updated>
+    </task>
+    <task id="LOCAL-00024" summary="增加日志">
+      <option name="closed" value="true" />
+      <created>1739153188608</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1739153188608</updated>
+    </task>
+    <task id="LOCAL-00025" summary="增加入参转义">
+      <option name="closed" value="true" />
+      <created>1739155404670</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1739155404670</updated>
+    </task>
+    <task id="LOCAL-00026" summary="增加日志">
+      <option name="closed" value="true" />
+      <created>1739156036790</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1739156036790</updated>
+    </task>
+    <task id="LOCAL-00027" summary="换接口">
+      <option name="closed" value="true" />
+      <created>1739156542505</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1739156542505</updated>
+    </task>
+    <task id="LOCAL-00028" summary="换接口">
+      <option name="closed" value="true" />
+      <created>1739156878672</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1739156878672</updated>
+    </task>
+    <task id="LOCAL-00029" summary="增加查询报告接口，入库功能">
+      <created>1739847457695</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1739847457695</updated>
+    </task>
+    <task id="LOCAL-00030" summary="增加查询报告接口，入库功能">
+      <created>1739849066765</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1739849066765</updated>
+    </task>
+    <task id="LOCAL-00031" summary="增加查询报告接口，入库功能">
+      <created>1739857362441</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1739857362441</updated>
+    </task>
+    <task id="LOCAL-00032" summary="优化数据库操作">
+      <created>1739858070452</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1739858070452</updated>
+    </task>
+    <task id="LOCAL-00033" summary="优化数据库操作">
+      <created>1739859370898</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1739859370898</updated>
+    </task>
+    <task id="LOCAL-00034" summary="优化数据库操作">
+      <created>1739859466540</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1739859466540</updated>
+    </task>
+    <task id="LOCAL-00035" summary="优化数据库操作">
+      <created>1739859805151</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1739859805151</updated>
+    </task>
+    <task id="LOCAL-00036" summary="优化数据库操作">
+      <created>1739860137919</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1739860137919</updated>
+    </task>
+    <task id="LOCAL-00037" summary="优化数据库操作">
+      <created>1739861920155</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1739861920155</updated>
+    </task>
+    <task id="LOCAL-00038" summary="优化数据库操作">
+      <created>1740016665785</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1740016665785</updated>
+    </task>
+    <task id="LOCAL-00039" summary="改提示语">
+      <created>1740536681579</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1740536681579</updated>
+    </task>
+    <task id="LOCAL-00040" summary="增加变更代码标识">
+      <created>1740647763435</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1740647763435</updated>
+    </task>
+    <task id="LOCAL-00041" summary="增加变更代码标识">
+      <created>1740648188792</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1740648188792</updated>
+    </task>
+    <task id="LOCAL-00042" summary="增加变更代码标识">
+      <created>1740650090688</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1740650090688</updated>
+    </task>
+    <task id="LOCAL-00043" summary="增加变更代码标识">
+      <created>1740651459065</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1740651459066</updated>
+    </task>
+    <task id="LOCAL-00044" summary="增加变更代码标识">
+      <created>1740654254648</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1740654254648</updated>
+    </task>
+    <task id="LOCAL-00045" summary="增加变更代码标识">
+      <created>1740656256172</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1740656256172</updated>
+    </task>
+    <task id="LOCAL-00046" summary="增加变更代码标识">
+      <created>1740657168212</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1740657168212</updated>
+    </task>
+    <task id="LOCAL-00047" summary="前端">
+      <created>1745928018295</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1745928018295</updated>
+    </task>
+    <task id="LOCAL-00048" summary="前端">
+      <created>1745986566205</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1745986566205</updated>
+    </task>
+    <task id="LOCAL-00049" summary="增加大模型接口入参">
+      <created>1745999191194</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1745999191194</updated>
+    </task>
+    <task id="LOCAL-00050" summary="增加大模型接口入参">
+      <created>1746003652267</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1746003652268</updated>
+    </task>
+    <task id="LOCAL-00051" summary="增加大模型接口入参">
+      <created>1746005159742</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1746005159742</updated>
+    </task>
+    <task id="LOCAL-00052" summary="增加大模型接口入参">
+      <created>1746006255340</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1746006255340</updated>
+    </task>
+    <task id="LOCAL-00053" summary="修改提示词">
+      <created>1746519857468</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1746519857468</updated>
+    </task>
+    <task id="LOCAL-00054" summary="增加过滤注释代码方法">
+      <created>1746762980174</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1746762980174</updated>
+    </task>
+    <task id="LOCAL-00055" summary="增加过滤注释代码方法">
+      <created>1746763608464</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1746763608464</updated>
+    </task>
+    <task id="LOCAL-00056" summary="增加过滤注释代码方法">
+      <created>1747033049410</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1747033049410</updated>
+    </task>
+    <task id="LOCAL-00057" summary="增加日志">
+      <created>1747904323078</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1747904323079</updated>
+    </task>
+    <task id="LOCAL-00058" summary="增加日志">
+      <created>1747993971727</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1747993971728</updated>
+    </task>
+    <task id="LOCAL-00059" summary="增加日志">
+      <created>1748332821392</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1748332821392</updated>
+    </task>
+    <task id="LOCAL-00060" summary="增加耗时统计">
+      <created>1748488444692</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1748488444693</updated>
+    </task>
+    <task id="LOCAL-00061" summary="注释多余代码">
+      <created>1749010196188</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1749010196188</updated>
+    </task>
+    <task id="LOCAL-00062" summary="注释多余代码">
+      <created>1749010810972</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1749010810972</updated>
+    </task>
+    <task id="LOCAL-00063" summary="注释多余代码">
+      <created>1749020952007</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1749020952008</updated>
+    </task>
+    <task id="LOCAL-00064" summary="增加大模型接口判断">
+      <created>1751619936321</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1751619936321</updated>
+    </task>
+    <task id="LOCAL-00065" summary="增加大模型接口判断">
+      <created>1751622438420</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1751622438420</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加参数：基础路径" />
+    <MESSAGE value="requirements.txt" />
+    <MESSAGE value="加日志" />
+    <MESSAGE value="项目说明" />
+    <MESSAGE value="异常处理" />
+    <MESSAGE value="更换模型" />
+    <MESSAGE value="优化方法提取方法" />
+    <MESSAGE value="优化正则表达式提取方法" />
+    <MESSAGE value="接口返回增加源代码" />
+    <MESSAGE value="注释" />
+    <MESSAGE value="部署文档更新" />
+    <MESSAGE value="增加入参转义" />
+    <MESSAGE value="换接口" />
+    <MESSAGE value="增加查询报告接口，入库功能" />
+    <MESSAGE value="优化数据库操作" />
+    <MESSAGE value="改提示语" />
+    <MESSAGE value="增加变更代码标识" />
+    <MESSAGE value="前端" />
+    <MESSAGE value="增加大模型接口入参" />
+    <MESSAGE value="修改提示词" />
+    <MESSAGE value="增加过滤注释代码方法" />
+    <MESSAGE value="增加日志" />
+    <MESSAGE value="增加耗时统计" />
+    <MESSAGE value="注释多余代码" />
+    <MESSAGE value="增加大模型接口判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加大模型接口判断" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/remove_java_comments_view.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/get_change_method_view.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/get_change_method_view.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/get_change_method_view.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="line" />
+        <watch expression="modified_methods_by_file" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/py_codediff$api.coverage" NAME="api Coverage Results" MODIFIED="1749020658663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/controller" />
+    <SUITE FILE_PATH="coverage/py_codediff$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1752723460888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py_codediff$read_report_view.coverage" NAME="read_report_view Coverage Results" MODIFIED="1748485148164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
+    <SUITE FILE_PATH="coverage/py_codediff$remove_java_comments_view.coverage" NAME="remove_java_comments_view Coverage Results" MODIFIED="1746762682919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
+    <SUITE FILE_PATH="coverage/py_codediff$test.coverage" NAME="test Coverage Results" MODIFIED="1747015551798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
+  </component>
+</project>

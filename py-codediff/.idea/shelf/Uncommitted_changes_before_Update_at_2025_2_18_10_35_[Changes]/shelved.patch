@@ -1,0 +1,660 @@
+Index: view/read_report_view.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/view/read_report_view.py b/view/read_report_view.py
+new file mode 100644
+--- /dev/null	(date 1739845824758)
++++ b/view/read_report_view.py	(date 1739845824758)
+@@ -0,0 +1,31 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++"""
++@Author: gaobo
++@Project: py-codediff
++@file: read_report_view.py
++@Date: 2025/2/18 9:51
++@Description: 
++"""
++from model.save_read_report import ReportModel
++def read_report(report_id):
++    sql_report = ReportModel().report_query_model(report_id=report_id)
++    report = {"code": 200, "data": {}}
++
++    # 假设 sql_report 是包含元组的列表
++    for i in sql_report:
++
++        # 如果 i[2] 不存在，初始化它为一个字典
++        if i[2] not in report["data"]:
++            report["data"][i[2]] = {}
++
++        # 如果 i[3] 不存在，初始化它为一个空列表
++        if i[3] not in report["data"][i[2]]:
++            report["data"][i[2]][i[3]] = []
++
++        # 向 i[3] 对应的列表中追加 i[4] 和 i[5]
++        report["data"][i[2]][i[3]].extend([i[4], i[5]])
++
++    print(report)
++
++    return report
+\ No newline at end of file
+Index: ../.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8 (3)\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/misc.xml b/../.idea/misc.xml
+--- a/../.idea/misc.xml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/../.idea/misc.xml	(date 1739516702314)
+@@ -1,6 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8 (3)" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (py-codediff)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: ../.idea/aicodediff.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/aicodediff.iml b/../.idea/aicodediff.iml
+--- a/../.idea/aicodediff.iml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/../.idea/aicodediff.iml	(date 1739516702310)
+@@ -2,8 +2,10 @@
+ <module type="JAVA_MODULE" version="4">
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/py-codediff/.venv" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.11 (py-codediff)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/py-codediff.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.11 (venv-1)\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/py-codediff.iml b/.idea/py-codediff.iml
+--- a/.idea/py-codediff.iml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/.idea/py-codediff.iml	(date 1739792808587)
+@@ -2,8 +2,10 @@
+ <module type="JAVA_MODULE" version="4">
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 3.11 (venv-1)" jdkType="Python SDK" />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.venv" />
++    </content>
++    <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: base/sql_manage.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/base/sql_manage.py b/base/sql_manage.py
+new file mode 100644
+--- /dev/null	(date 1739792808073)
++++ b/base/sql_manage.py	(date 1739792808073)
+@@ -0,0 +1,90 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++"""
++@Author: gaobo
++@Project: py-codediff
++@file: sql_manage.py
++@Date: 2025/2/17 19:45
++@Description: 
++"""
++import pymysql
++from pymysql.err import MySQLError
++
++class DatabaseManager:
++        def __init__(self):
++            # self.host = "localhost"
++            # self.port = 3306
++            # self.user = "root"
++            # self.password = "root"
++            # self.database = "ui_auto"
++            self.host = "10.230.222.237"
++            self.port = 3306
++            self.user = "root"
++            self.password = "123456kk"
++            self.database = "ui_auto"
++            self.connection = self._create_connection()
++
++
++
++        def _create_connection(self):
++            """创建数据库连接"""
++            try:
++                return pymysql.connect(
++                    host=self.host,
++                    user=self.user,
++                    password=self.password,
++                    database=self.database,
++                    port=self.port
++                )
++            except MySQLError as e:
++                print(f"连接错误: {e}")
++                return None
++
++        def execute_sql(self, query, params=None, fetch=True):
++            """执行 SQL 查询或更新"""
++            if not self.connection:
++                print("未连接到数据库")
++                return None
++
++            cursor = self.connection.cursor()
++            try:
++                if isinstance(params, list):  # 检查是否为列表，执行批量插入
++                    cursor.executemany(query, params)
++                else:
++                    cursor.execute(query, params)
++                if fetch:
++
++                    res=cursor.fetchall()
++                    print("查询结果:", res)
++                    return res  # 获取结果
++                else:
++                    self.connection.commit()  # 提交更改
++                    return cursor.lastrowid
++            except MySQLError as e:
++                print(f"执行错误: {e}")
++
++        # def setup_database(self):
++        #     """创建用户表"""
++        #     create_table_query = """
++        #     CREATE TABLE IF NOT EXISTS users (
++        #         username VARCHAR(50) PRIMARY KEY,
++        #         password VARCHAR(255)
++        #     )
++        #     """
++        #     self.execute_sql(create_table_query, fetch=False)
++        #
++        # def insert_user(self, username, password):
++        #     """插入用户"""
++        #     insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
++        #     self.execute_sql(insert_query, (username, password), fetch=False)
++        #
++        # def get_user(self, username):
++        #     """获取用户信息"""
++        #     select_query = "SELECT * FROM users WHERE username = %s"
++        #     return self.execute_sql(select_query, (username,))
++
++        def close_connection(self):
++            """关闭数据库连接"""
++            if self.connection:
++                self.connection.close()
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ae29b50b-f1c9-465a-ae35-138391ad4370\" name=\"Changes\" comment=\"换接口\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/controller/api.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/controller/api.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/view/get_change_method_view.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/view/get_change_method_view.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$/..\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitLabMergeRequestFiltersHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPENED&quot;,\r\n    &quot;assignee&quot;: {\r\n      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,\r\n      &quot;username&quot;: &quot;gaobo&quot;,\r\n      &quot;fullname&quot;: &quot;高博&quot;\r\n    }\r\n  }\r\n}</component>\r\n  <component name=\"GitLabMergeRequestsSettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;first&quot;: &quot;http://gitlab.jrdaimao.com/qa/aicodediff.git&quot;,\r\n    &quot;second&quot;: &quot;e0768d7b-e194-40d4-824d-0b8751b96c51&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2s3vo5zFNIAvDp7yB6jOb62H1CA\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Python.api.executor\": \"Run\",\r\n    \"Python.get_change_method_view.executor\": \"Debug\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"E:/lcode/aicodediff/py-codediff\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"api\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"py-codediff\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/controller\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/controller/api.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.api\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ae29b50b-f1c9-465a-ae35-138391ad4370\" name=\"Changes\" comment=\"\" />\r\n      <created>1737697246120</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1737697246120</updated>\r\n      <workItem from=\"1737697248867\" duration=\"824000\" />\r\n      <workItem from=\"1737713029862\" duration=\"11000\" />\r\n      <workItem from=\"1737713050772\" duration=\"1331000\" />\r\n      <workItem from=\"1738824384266\" duration=\"70000\" />\r\n      <workItem from=\"1738824638606\" duration=\"1131000\" />\r\n      <workItem from=\"1738826339446\" duration=\"13000\" />\r\n      <workItem from=\"1738826400959\" duration=\"611000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"requirements.txt\">\r\n      <created>1737884669878</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737884669878</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"requirements.txt\">\r\n      <created>1737884767606</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737884767606</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"requirements.txt\">\r\n      <created>1737885768066</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737885768066</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"增加参数：基础路径\">\r\n      <created>1737886284630</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737886284630</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"requirements.txt\">\r\n      <created>1737886725098</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737886725098</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"加日志\">\r\n      <created>1737893569680</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737893569680</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"加日志\">\r\n      <created>1737893878442</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737893878442</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"加日志\">\r\n      <created>1737893900567</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737893900567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"加日志\">\r\n      <created>1737894179910</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737894179910</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"加日志\">\r\n      <created>1737894637583</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737894637583</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"项目说明\">\r\n      <created>1737895063000</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737895063000</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"异常处理\">\r\n      <created>1737895927756</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1737895927756</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"更换模型\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738907146015</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738907146015</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"优化方法提取方法\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738912222523</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738912222523</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"优化方法提取方法\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738914144923</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738914144923</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"优化正则表达式提取方法\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738921429018</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738921429018</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"接口返回增加源代码\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738922061011</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738922061011</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"注释\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738980676409</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738980676409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"部署文档更新\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738982012756</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738982012756</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"部署文档更新\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738993213766</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738993213766</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"部署文档更新\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1738993528874</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1738993528874</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"部署文档更新\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739003882188</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739003882188</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"增加日志\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739010033441</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739010033441</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"增加日志\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739153188608</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739153188608</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"增加入参转义\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739155404670</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739155404670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"增加日志\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739156036790</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739156036790</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"换接口\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739156542505</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739156542505</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"换接口\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1739156878672</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1739156878672</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"29\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"增加参数：基础路径\" />\r\n    <MESSAGE value=\"requirements.txt\" />\r\n    <MESSAGE value=\"加日志\" />\r\n    <MESSAGE value=\"项目说明\" />\r\n    <MESSAGE value=\"异常处理\" />\r\n    <MESSAGE value=\"更换模型\" />\r\n    <MESSAGE value=\"优化方法提取方法\" />\r\n    <MESSAGE value=\"优化正则表达式提取方法\" />\r\n    <MESSAGE value=\"接口返回增加源代码\" />\r\n    <MESSAGE value=\"注释\" />\r\n    <MESSAGE value=\"部署文档更新\" />\r\n    <MESSAGE value=\"增加入参转义\" />\r\n    <MESSAGE value=\"增加日志\" />\r\n    <MESSAGE value=\"换接口\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"换接口\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/view/get_change_method_view.py</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n    <watches-manager>\r\n      <configuration name=\"PythonConfigurationType\">\r\n        <watch expression=\"line\" />\r\n      </configuration>\r\n    </watches-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/.idea/workspace.xml	(date 1739845825112)
+@@ -4,7 +4,18 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ae29b50b-f1c9-465a-ae35-138391ad4370" name="Changes" comment="换接口">
++    <list default="true" id="ae29b50b-f1c9-465a-ae35-138391ad4370" name="Changes" comment="增加入参：port">
++      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/base/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/base/sql_manage.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/model/save_read_report.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/view/read_report_view.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../.idea/aicodediff.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/aicodediff.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/py-codediff.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/py-codediff.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/controller/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/api.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/view/get_change_method_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/get_change_method_view.py" afterDir="false" />
+@@ -58,15 +69,16 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+-    "Python.api.executor": "Run",
++    "Python.api.executor": "Debug",
+     "Python.get_change_method_view.executor": "Debug",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "WebServerToolWindowFactoryState": "false",
+     "git-widget-placeholder": "master",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "E:/lcode/aicodediff/py-codediff",
++    "last_opened_file_path": "E:/marketingproject",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+@@ -74,12 +86,16 @@
+     "nodejs_package_manager_path": "npm",
+     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+     "vue.rearranger.settings.migration": "true"
++  },
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "mysql"
++    ]
+   }
+ }]]></component>
+   <component name="RunManager">
+     <configuration name="api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="py-codediff" />
+-      <option name="ENV_FILES" value="" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+       <envs>
+@@ -90,6 +106,7 @@
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controller/api.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+@@ -127,6 +144,15 @@
+       <workItem from="1738824638606" duration="1131000" />
+       <workItem from="1738826339446" duration="13000" />
+       <workItem from="1738826400959" duration="611000" />
++      <workItem from="1739777459146" duration="681000" />
++      <workItem from="1739787728938" duration="66000" />
++      <workItem from="1739792488372" duration="31000" />
++      <workItem from="1739792556813" duration="7000" />
++      <workItem from="1739792573994" duration="11000" />
++      <workItem from="1739792600819" duration="10000" />
++      <workItem from="1739792651488" duration="87000" />
++      <workItem from="1739792756163" duration="153000" />
++      <workItem from="1739792941680" duration="7575000" />
+     </task>
+     <task id="LOCAL-00001" summary="requirements.txt">
+       <created>1737884669878</created>
+@@ -340,12 +366,63 @@
+       <option name="project" value="LOCAL" />
+       <updated>1739156878672</updated>
+     </task>
+-    <option name="localTasksCounter" value="29" />
++    <task id="LOCAL-00029" summary="增加入参：port">
++      <option name="closed" value="true" />
++      <created>1739178968157</created>
++      <option name="number" value="00029" />
++      <option name="presentableId" value="LOCAL-00029" />
++      <option name="project" value="LOCAL" />
++      <updated>1739178968157</updated>
++    </task>
++    <task id="LOCAL-00030" summary="增加入参：port">
++      <option name="closed" value="true" />
++      <created>1739181124384</created>
++      <option name="number" value="00030" />
++      <option name="presentableId" value="LOCAL-00030" />
++      <option name="project" value="LOCAL" />
++      <updated>1739181124384</updated>
++    </task>
++    <task id="LOCAL-00031" summary="增加入参：port">
++      <option name="closed" value="true" />
++      <created>1739181271925</created>
++      <option name="number" value="00031" />
++      <option name="presentableId" value="LOCAL-00031" />
++      <option name="project" value="LOCAL" />
++      <updated>1739181271925</updated>
++    </task>
++    <task id="LOCAL-00032" summary="增加入参：port">
++      <option name="closed" value="true" />
++      <created>1739182397268</created>
++      <option name="number" value="00032" />
++      <option name="presentableId" value="LOCAL-00032" />
++      <option name="project" value="LOCAL" />
++      <updated>1739182397268</updated>
++    </task>
++    <task id="LOCAL-00033" summary="增加入参：port">
++      <option name="closed" value="true" />
++      <created>1739182660332</created>
++      <option name="number" value="00033" />
++      <option name="presentableId" value="LOCAL-00033" />
++      <option name="project" value="LOCAL" />
++      <updated>1739182660332</updated>
++    </task>
++    <option name="localTasksCounter" value="34" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="增加参数：基础路径" />
+     <MESSAGE value="requirements.txt" />
+@@ -361,14 +438,15 @@
+     <MESSAGE value="增加入参转义" />
+     <MESSAGE value="增加日志" />
+     <MESSAGE value="换接口" />
+-    <option name="LAST_COMMIT_MESSAGE" value="换接口" />
++    <MESSAGE value="增加入参：port" />
++    <option name="LAST_COMMIT_MESSAGE" value="增加入参：port" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+           <url>file://$PROJECT_DIR$/view/get_change_method_view.py</url>
+-          <line>64</line>
++          <line>80</line>
+           <option name="timeStamp" value="6" />
+         </line-breakpoint>
+       </breakpoints>
+@@ -379,4 +457,7 @@
+       </configuration>
+     </watches-manager>
+   </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/py_codediff$api.coverage" NAME="api Coverage Results" MODIFIED="1739845628290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/controller" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+new file mode 100644
+--- /dev/null	(date 1739794794431)
++++ b/.idea/dataSources.xml	(date 1739794794431)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="@10.230.222.237" uuid="085f8453-b17d-47f5-b9e7-9c21fc2d4e2f">
++      <driver-ref>mysql.8</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
++      <jdbc-url>jdbc:mysql://10.230.222.237:3306</jdbc-url>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"InspectionProjectProfileManager\">\r\n  <profile version=\"1.0\">\r\n    <option name=\"myName\" value=\"Project Default\" />\r\n    <inspection_tool class=\"Eslint\" enabled=\"true\" level=\"WARNING\" enabled_by_default=\"true\" />\r\n    <inspection_tool class=\"PyPackageRequirementsInspection\" enabled=\"true\" level=\"WARNING\" enabled_by_default=\"true\">\r\n      <option name=\"ignoredPackages\">\r\n        <value>\r\n          <list size=\"5\">\r\n            <item index=\"0\" class=\"java.lang.String\" itemvalue=\"cx_Oracle\" />\r\n            <item index=\"1\" class=\"java.lang.String\" itemvalue=\"test\" />\r\n            <item index=\"2\" class=\"java.lang.String\" itemvalue=\"six\" />\r\n            <item index=\"3\" class=\"java.lang.String\" itemvalue=\"allure-python-commons\" />\r\n            <item index=\"4\" class=\"java.lang.String\" itemvalue=\"allure-pytest\" />\r\n          </list>\r\n        </value>\r\n      </option>\r\n    </inspection_tool>\r\n    <inspection_tool class=\"PyPep8NamingInspection\" enabled=\"true\" level=\"WEAK WARNING\" enabled_by_default=\"true\">\r\n      <option name=\"ignoredErrors\">\r\n        <list>\r\n          <option value=\"N802\" />\r\n          <option value=\"N803\" />\r\n          <option value=\"N801\" />\r\n        </list>\r\n      </option>\r\n    </inspection_tool>\r\n    <inspection_tool class=\"PyUnresolvedReferencesInspection\" enabled=\"true\" level=\"WARNING\" enabled_by_default=\"true\">\r\n      <option name=\"ignoredIdentifiers\">\r\n        <list>\r\n          <option value=\"Tkinter\" />\r\n          <option value=\"time.time.time\" />\r\n          <option value=\"marketCenter.Controller.marketCenter.View\" />\r\n        </list>\r\n      </option>\r\n    </inspection_tool>\r\n    <inspection_tool class=\"TsLint\" enabled=\"true\" level=\"WARNING\" enabled_by_default=\"true\" />\r\n  </profile>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+--- a/.idea/inspectionProfiles/Project_Default.xml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1739181118366)
+@@ -5,12 +5,32 @@
+     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+       <option name="ignoredPackages">
+         <value>
+-          <list size="5">
++          <list size="25">
+             <item index="0" class="java.lang.String" itemvalue="cx_Oracle" />
+             <item index="1" class="java.lang.String" itemvalue="test" />
+             <item index="2" class="java.lang.String" itemvalue="six" />
+             <item index="3" class="java.lang.String" itemvalue="allure-python-commons" />
+             <item index="4" class="java.lang.String" itemvalue="allure-pytest" />
++            <item index="5" class="java.lang.String" itemvalue="httpx" />
++            <item index="6" class="java.lang.String" itemvalue="annotated-types" />
++            <item index="7" class="java.lang.String" itemvalue="pydantic" />
++            <item index="8" class="java.lang.String" itemvalue="ollama" />
++            <item index="9" class="java.lang.String" itemvalue="h11" />
++            <item index="10" class="java.lang.String" itemvalue="requests" />
++            <item index="11" class="java.lang.String" itemvalue="click" />
++            <item index="12" class="java.lang.String" itemvalue="sniffio" />
++            <item index="13" class="java.lang.String" itemvalue="fastapi" />
++            <item index="14" class="java.lang.String" itemvalue="pydantic_core" />
++            <item index="15" class="java.lang.String" itemvalue="colorama" />
++            <item index="16" class="java.lang.String" itemvalue="starlette" />
++            <item index="17" class="java.lang.String" itemvalue="certifi" />
++            <item index="18" class="java.lang.String" itemvalue="typing_extensions" />
++            <item index="19" class="java.lang.String" itemvalue="anyio" />
++            <item index="20" class="java.lang.String" itemvalue="charset-normalizer" />
++            <item index="21" class="java.lang.String" itemvalue="urllib3" />
++            <item index="22" class="java.lang.String" itemvalue="uvicorn" />
++            <item index="23" class="java.lang.String" itemvalue="httpcore" />
++            <item index="24" class="java.lang.String" itemvalue="idna" />
+           </list>
+         </value>
+       </option>
+Index: model/__init__.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/model/__init__.py b/model/__init__.py
+new file mode 100644
+--- /dev/null	(date 1739792808010)
++++ b/model/__init__.py	(date 1739792808010)
+@@ -0,0 +1,9 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++"""
++@Author: gaobo
++@Project: py-codediff
++@file: __init__.py
++@Date: 2025/2/17 19:46
++@Description: 
++"""
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Black\">\r\n    <option name=\"sdkName\" value=\"Python 3.11 (venv-1)\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.11 (venv-1)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/.idea/misc.xml	(date 1739792808601)
+@@ -3,5 +3,5 @@
+   <component name="Black">
+     <option name="sdkName" value="Python 3.11 (venv-1)" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (venv-1)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (codediff_venv)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: controller/api.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#!/usr/bin/env python\r\n# -*- coding: utf-8 -*-\r\n\"\"\"\r\n@Author: gaobo\r\n@Project: aicodediff\r\n@file: api.py\r\n@Date: 2025/1/23 17:03\r\n@Description: \r\n\"\"\"\r\nimport logging\r\n\r\nimport ollama\r\nfrom fastapi import FastAPI, HTTPException, Request\r\nfrom fastapi.middleware.cors import CORSMiddleware\r\nfrom pydantic import BaseModel\r\nfrom starlette.responses import JSONResponse\r\n\r\nfrom view import get_change_method_view\r\nimport uvicorn\r\n#初始化FastAPI应用\r\napp = FastAPI(\r\n    title=\"AI Code Diff API Wrapper\",\r\n    description=\"ollama与获取全部代码的接口\",\r\n    version=\"1.0.0\"\r\n)\r\n\r\n# 添加 CORS 中间件（跨域支持）\r\napp.add_middleware(\r\n    CORSMiddleware,\r\n    allow_origins=[\"*\"],  # 根据需求限制允许的域名\r\n    allow_credentials=True,\r\n    allow_methods=[\"*\"],\r\n    allow_headers=[\"*\"],\r\n)\r\n\r\n\r\n\r\n\r\n# ollama 客户端初始化配置\r\nclient = ollama.Client(host=\"10.230.205.174:1088\")\r\n# 日志配置\r\nlogging.basicConfig(level=logging.ERROR)\r\nlogger = logging.getLogger(__name__)\r\n\r\n# 定义请求模型\r\nclass GenerateRequest(BaseModel):\r\n    code: str\r\n    model: str = \"deepseek-coder:6.7b\"\r\n    num_ctx: int = 16384\r\nclass DiffRequest(BaseModel):\r\n    diff_output_path: str\r\n    base_path: str\r\n    port: int = 8025\r\n    model: str = \"deepseek-coder:6.7b\"\r\n    num_ctx: int = 16384\r\n\r\n# 文本生成接口\r\n@app.post(\"/ollama/generate\", summary=\"生成文本\", description=\"使用 Ollama API 生成文本。\")\r\nasync def generate_text(request: Request, data: GenerateRequest):\r\n    prompt = f\"\"\"\r\n    对以下代码进行代码检查,给出比较详细的检查结果，自行跳过无效的代码，只对有效的代码进行检查，检查结果输出类似通义灵码的输出风格：\r\n    {data.code}\r\n\t请将审查结果生成审查报告,报告格式严格遵守以下格式：\r\n    检查点和改进建议：\r\n         问题描述\r\n         问题代码\r\n         改进方法\r\n\r\n\r\n    改进后的代码示例：\r\n        示例的注释部分用中文显示\r\n    总结：\r\n    总结内容进行排序显示\r\n    \"\"\"\r\n    try:\r\n        response = client.generate(model=data.model, prompt=prompt,keep_alive=\"1h\",options={'num_ctx': data.num_ctx})\r\n        return JSONResponse({\"status\":200,\"content\":response.response})\r\n    except Exception as e:\r\n        raise HTTPException(status_code=500, detail=str(e))\r\n\r\n# 获取模型列表\r\n@app.get(\"/ollama/models\", summary=\"获取模型列表\", description=\"获取所有可用的模型\")\r\nasync def list_models(request: Request):\r\n    # url = f\"{OLLAMA_API_URL}/v1/models\"\r\n    # headers = {}\r\n    try:\r\n        response = client.list()\r\n        return response.models\r\n    except Exception as e:\r\n        raise HTTPException(status_code=500, detail=str(e))\r\n\r\n\r\n#获取增量代码覆盖率方法名\r\n@app.post(\"/codediff/getchangemethod\")\r\ndef get_change_method_api(request: DiffRequest):\r\n    diff_output_path = request.diff_output_path\r\n    base_path = request.base_path\r\n    port = request.port\r\n    model = request.model\r\n    num_ctx = request.num_ctx\r\n    # 获取增量代码覆盖率方法名\r\n    modified_methods_by_file = get_change_method_view.get_change_method(diff_output_path,base_path,port,model,num_ctx)\r\n    return modified_methods_by_file\r\nif __name__ == \"__main__\":\r\n\r\n    uvicorn.run(app, host=\"0.0.0.0\", port=8025)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/controller/api.py b/controller/api.py
+--- a/controller/api.py	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/controller/api.py	(date 1739844027896)
+@@ -15,7 +15,7 @@
+ from pydantic import BaseModel
+ from starlette.responses import JSONResponse
+ 
+-from view import get_change_method_view
++from view import get_change_method_view, read_report_view
+ import uvicorn
+ #初始化FastAPI应用
+ app = FastAPI(
+@@ -53,7 +53,10 @@
+     port: int = 8025
+     model: str = "deepseek-coder:6.7b"
+     num_ctx: int = 16384
++    report_id: str = ""
+ 
++class ReportRequest(BaseModel):
++    report_id: str
+ # 文本生成接口
+ @app.post("/ollama/generate", summary="生成文本", description="使用 Ollama API 生成文本。")
+ async def generate_text(request: Request, data: GenerateRequest):
+@@ -98,9 +101,18 @@
+     port = request.port
+     model = request.model
+     num_ctx = request.num_ctx
++    report_id = request.report_id
+     # 获取增量代码覆盖率方法名
+-    modified_methods_by_file = get_change_method_view.get_change_method(diff_output_path,base_path,port,model,num_ctx)
++    modified_methods_by_file = get_change_method_view.get_change_method(diff_output_path,base_path,port,model,num_ctx,report_id)
+     return modified_methods_by_file
++
++
++@app.post("/codediff/readreport")
++def read_report_api(request: ReportRequest):
++    report_id = request.report_id
++    # 获取增量代码覆盖率方法名
++    report = read_report_view.read_report(report_id)
++    return report
+ if __name__ == "__main__":
+ 
+     uvicorn.run(app, host="0.0.0.0", port=8025)
+\ No newline at end of file
+Index: model/save_read_report.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/model/save_read_report.py b/model/save_read_report.py
+new file mode 100644
+--- /dev/null	(date 1739844644638)
++++ b/model/save_read_report.py	(date 1739844644638)
+@@ -0,0 +1,30 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++"""
++@Author: gaobo
++@Project: py-codediff
++@file: save_read_report.py
++@Date: 2025/2/17 19:48
++@Description: 
++"""
++# !/user/bin/env python3
++# -*- coding: utf-8 -*-
++from datetime import datetime
++
++from base.sql_manage import DatabaseManager
++
++
++class ReportModel:
++    def report_query_model(self,report_id):
++
++        report_query = '''SELECT * FROM ai_code_review.code_review_report WHERE report_id = %s ORDER BY id;'''
++        params = (report_id,)
++
++
++        return DatabaseManager().execute_sql(report_query, params)
++
++    def report_save_model(self,report_id,file_path,method_name,modelresult,sourcecode):
++        params = (report_id,file_path,method_name,modelresult,sourcecode)
++        report_save = '''INSERT INTO ai_code_review.code_review_report (report_id,file_path,method_name,modelresult,sourcecode) 
++        VALUES (%s, %s, %s, %s,%s);'''
++        return DatabaseManager().execute_sql(report_save, params,fetch=False)
+Index: base/__init__.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/base/__init__.py b/base/__init__.py
+new file mode 100644
+--- /dev/null	(date 1739792520269)
++++ b/base/__init__.py	(date 1739792520269)
+@@ -0,0 +1,9 @@
++#!/usr/bin/env python
++# -*- coding: utf-8 -*-
++"""
++@Author: gaobo
++@Project: py-codediff
++@file: __init__.py
++@Date: 2025/2/17 19:41
++@Description: 
++"""
+Index: view/get_change_method_view.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#!/usr/bin/env python\r\n# -*- coding: utf-8 -*-\r\n\"\"\"\r\n@Author: gaobo\r\n@Project: aicodediff\r\n@file: get_change_method_view.py\r\n@Date: 2025/1/23 17:13\r\n@Description:\r\n\"\"\"\r\nimport os\r\nimport re\r\nimport requests\r\n\r\ndef get_change_method(diff_output_path,base_path,port,model,num_ctx):\r\n   #匹配可能带有+或-符号的 Java 方法声public、private）、返回类型、方法名以及参数列表的开始部分 (，并处理可能存在的空白字符和泛型或数组类型。\r\n    method_pattern = re.compile(r'^[+-]?\\s*(public|private|protected|static|final)?\\s*\\w+[\\w\\<\\>\\[\\]]*\\s+(\\w+)\\s*\\(')\r\n\r\n    # 用于存储文件路径和变动方法名\r\n    modified_methods_by_file = {}\r\n    # 当前文件路径\r\n    current_file = None\r\n    # 当前方法名称\r\n    current_method = None\r\n\r\n    # 读取本地保存的 git diff 文件diff_output.txt\r\n    with open(diff_output_path, \"r\", encoding='utf-8', errors='ignore') as file:\r\n        for line in file:\r\n            # 检查是否是文件路径的变更行\r\n            if line.startswith(\"--- a/\") or line.startswith(\"+++ b/\"):\r\n                current_file = line.split()[1]  # 获取文件路径\r\n                if current_file.startswith(('a', 'b')):\r\n                    current_file = current_file[1:]\r\n                brace_stack = []  # 重置栈\r\n                continue\r\n\r\n            # 处理方法定义行 并更新当前方法名称\r\n            method_match = method_pattern.search(line)\r\n            if method_match:\r\n                current_method = method_match.group(2)  # 提取方法名\r\n\r\n            # 处理方法体 并检查方法结束符\r\n            for char in line:\r\n                if char == \"{\":\r\n                    brace_stack.append(char)  # 入栈\r\n                # 检查方法结束符\r\n                if char == '}':\r\n                    if brace_stack:\r\n                        brace_stack.pop()  #出栈\r\n                        if  brace_stack == [\"{\"]:\r\n                            current_method = None  # 重置当前方法\r\n\r\n            # 如果该行是增减的代码，且当前方法存在，说明该方法有变动 并记录该方法名\r\n            if (line.startswith('+') or line.startswith('-')) and current_method :\r\n                if current_file:  # 如果当前文件路径存在\r\n                    if current_file not in modified_methods_by_file:\r\n                        modified_methods_by_file[current_file] = []\r\n                    # 如果方法尚未记录过，并且栈中不是[\"{\"]，不是[\"{\"]表示当前行在方法体内，添加到列表中（保持顺序）\r\n                    if current_method not in modified_methods_by_file[current_file] and brace_stack != [\"{\"]:\r\n                        modified_methods_by_file[current_file].append(current_method)\r\n    response_fin = {\"code\": 200, \"data\": {}}\r\n    print(\"增量方法名，文件modified_methods_by_file:::\",modified_methods_by_file)\r\n\r\n\r\n    ollama_count = 0\r\n    # 遍历字典，获取每个文件的方法名，补全文件路径，并获取每个方法的代码\r\n    for key, value in modified_methods_by_file.items():\r\n        for i in range(len(value)):\r\n            if not key.startswith(base_path):\r\n                key = base_path + key\r\n            print(\"文件绝对路径base_path + key:::\", key)\r\n            method_name = value[i]\r\n            body_data = {\"methodPath\": key}\r\n            #判断当前路径存不存在，不存在跳过\r\n            if not os.path.exists(key):\r\n                continue\r\n            # 获取每个方法的代码\r\n            response = requests.post(\"http://10.230.222.237:8026/codediff/diffmethod\", json=body_data)\r\n            response_json=response.json()\r\n            print(\"全量方法代码response_json:::\", response_json)\r\n            # 如果方法名不在返回的methods字典中，则跳过该方法\r\n            if method_name not in response_json[\"methods\"]:\r\n                continue\r\n            # 匹配增量方法的代码\r\n            method_code=response_json[\"methods\"][method_name]\r\n            print(\"增量方法代码method_code:::\", method_code)\r\n            # 调用ollama接口获取增量方法代码的大模型结果\r\n            ollama_response=requests.post( f\"http://10.230.222.237:{port}/ollama/generate\", json={\"code\":method_code, \"model\":model ,\"num_ctx\" :num_ctx})\r\n            # 统计接口调用次数每调用一次增加一次\r\n            ollama_count += 1\r\n            print(\"接口调用次数ollama_count:::\", ollama_count)\r\n            ollama_json=ollama_response.json()\r\n            print(\"增量方法大模型结果ollama_json:::\", ollama_json)\r\n            ollama_content = ollama_json[\"content\"]\r\n            if key not in response_fin[\"data\"]:\r\n                response_fin[\"data\"].setdefault(key, {})\r\n            response_fin[\"data\"][key].update({method_name: [method_code,ollama_content]})\r\n    if response_fin[\"data\"] != {}:\r\n        return response_fin\r\n    else:\r\n        response_fin = {\"code\": 200, \"data\": {}, \"msg\": \"获取增量代码覆盖率方法名失败\"}\r\n        return response_fin
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/view/get_change_method_view.py b/view/get_change_method_view.py
+--- a/view/get_change_method_view.py	(revision fadf4888318fec043b0f01e96d9cc3467c58ed64)
++++ b/view/get_change_method_view.py	(date 1739796187722)
+@@ -10,8 +10,8 @@
+ import os
+ import re
+ import requests
+-
+-def get_change_method(diff_output_path,base_path,port,model,num_ctx):
++from model.save_read_report import ReportModel
++def get_change_method(diff_output_path,base_path,port,model,num_ctx,report_id):
+    #匹配可能带有+或-符号的 Java 方法声public、private）、返回类型、方法名以及参数列表的开始部分 (，并处理可能存在的空白字符和泛型或数组类型。
+     method_pattern = re.compile(r'^[+-]?\s*(public|private|protected|static|final)?\s*\w+[\w\<\>\[\]]*\s+(\w+)\s*\(')
+ 
+@@ -71,8 +71,8 @@
+             method_name = value[i]
+             body_data = {"methodPath": key}
+             #判断当前路径存不存在，不存在跳过
+-            if not os.path.exists(key):
+-                continue
++            # if not os.path.exists(key):
++            #     continue
+             # 获取每个方法的代码
+             response = requests.post("http://10.230.222.237:8026/codediff/diffmethod", json=body_data)
+             response_json=response.json()
+@@ -94,6 +94,21 @@
+             if key not in response_fin["data"]:
+                 response_fin["data"].setdefault(key, {})
+             response_fin["data"][key].update({method_name: [method_code,ollama_content]})
++            #把response_fin["data"]写到数据库中 存储到数据库中数据库结构是这样的-- auto-generated definition
++            #report_id, key, method_name, method_code, ollama_content 有一个不存在就不写库
++            print("report_id, key, method_name, method_code, ollama_content:::", report_id, key, method_name, method_code, ollama_content)
++            if report_id and key and method_name and method_code and ollama_content:
++                # 插入数据库
++                ReportModel().report_save_model(report_id=report_id, file_path=key, method_name=method_name, modelresult=method_code, sourcecode=ollama_content)
++                print("数据插入成功")
++            else:
++                print("数据插入失败")
++
++
++
++
++
++
+     if response_fin["data"] != {}:
+         return response_fin
+     else:
